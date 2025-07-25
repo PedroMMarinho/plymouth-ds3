@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=ds3
+Description=Darksouls loading theme
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/ds3
+ScriptFile=/usr/share/plymouth/themes/ds3/ds3.script
