@@ -1,3 +1,4 @@
+# === Reference screen size (design baseline) ===
 ref_width = 1920.0;
 ref_height = 1080.0;
 
@@ -7,16 +8,16 @@ scale_y = Window.GetHeight() / ref_height;
 desired_x = Math.Int(418 * scale_x);
 desired_y = Math.Int(161 * scale_y);
 
-# Image loading and aspect-ratio scaling 
+# === Load and scale the image proportionally ===
 image = Image("main_box.png");
 
 image_ratio = image.GetHeight() / image.GetWidth();
 screen_ratio = Window.GetHeight() / Window.GetWidth();
 
 if (screen_ratio > image_ratio)
-  scale_factor = Window.GetHeight() / image.GetHeight();
+    scale_factor = Window.GetHeight() / image.GetHeight();
 else
-  scale_factor = Window.GetWidth() / image.GetWidth();
+    scale_factor = Window.GetWidth() / image.GetWidth();
 
 scaled_w = image.GetWidth() * scale_factor;
 scaled_h = image.GetHeight() * scale_factor;
@@ -24,3 +25,21 @@ scaled_h = image.GetHeight() * scale_factor;
 image_scaled = image.Scale(scaled_w, scaled_h);
 sprite = Sprite(image_scaled);
 sprite.SetPosition(desired_x, desired_y, 0);
+
+# === Debug info as on-screen text ===
+
+# Function to create and position debug text sprites
+fun debug_text(content, y_offset) {
+    text_img = Image.Text(content, 1.0, 1.0, 1.0, 1.0); # white text
+    text_sprite = Sprite(text_img);
+    text_sprite.SetPosition(10, y_offset, 100); # x:10, z:100 to ensure top layer
+}
+
+# Print debug values on screen
+debug_text("Window: " + Window.GetWidth() + "x" + Window.GetHeight(), 10);
+debug_text("Image: " + image.GetWidth() + "x" + image.GetHeight(), 40);
+debug_text("Image Ratio: " + image_ratio, 70);
+debug_text("Screen Ratio: " + screen_ratio, 100);
+debug_text("Scale Factor: " + scale_factor, 130);
+debug_text("Scaled Size: " + scaled_w + "x" + scaled_h, 160);
+debug_text("Scaled Position: " + desired_x + "," + desired_y, 190);
