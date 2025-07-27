@@ -1,7 +1,7 @@
 # === Global Setup ===
 
-# Store sprites by ID
 global.sprites = [];
+global.images = [];
 
 # Reference resolution (1920x1080 layout)
 ref_width = 1920.0;
@@ -12,44 +12,37 @@ scale_x = Window.GetWidth() / ref_width;
 scale_y = Window.GetHeight() / ref_height;
 screen_ratio = Window.GetHeight() / Window.GetWidth();
 
-# === Draw a scaled sprite based on ref_x, ref_y in reference resolution ===
-fun draw_scaled_sprite(id, path, ref_x, ref_y) {
-    img = Image(path);
-    image_ratio = img.GetHeight() / img.GetWidth();
+# === Draw a scaled sprite from preloaded image ===
+fun draw_scaled_sprite(id, image, ref_x, ref_y) {
+    image_ratio = image.GetHeight() / image.GetWidth();
 
     if (screen_ratio > image_ratio) {
-        scale_factor = Window.GetHeight() / img.GetHeight();
+        scale_factor = Window.GetHeight() / image.GetHeight();
     } else {
-        scale_factor = Window.GetWidth() / img.GetWidth();
+        scale_factor = Window.GetWidth() / image.GetWidth();
     }
 
-    scaled_w = img.GetWidth() * scale_factor;
-    scaled_h = img.GetHeight() * scale_factor;
+    scaled_w = image.GetWidth() * scale_factor;
+    scaled_h = image.GetHeight() * scale_factor;
 
     actual_x = Math.Int(ref_x * scale_x);
     actual_y = Math.Int(ref_y * scale_y);
 
-    Plymouth.Debug("Drawing [" + id + "] @ (" + actual_x + "," + actual_y + ") scaled " + scale_factor);
-
-    img_scaled = img.Scale(scaled_w, scaled_h);
+    img_scaled = image.Scale(scaled_w, scaled_h);
     spr = Sprite(img_scaled);
     spr.SetPosition(actual_x, actual_y, 0);
 
-    # Store sprite globally
     global.sprites[id] = spr;
 }
 
-# === Background Setup ===
-
+# === Background ===
 Window.SetBackgroundTopColor(0.0, 0.0, 0.0);
 Window.SetBackgroundBottomColor(0.0, 0.0, 0.0);
 
+# === Load Images ===
+global.images["main_box"] = Image("main_box.png");
+global.images["ds3_logo"] = Image("darksouls3_logo.png");
+
 # === Draw Sprites ===
-
-# Main menu background box 
-draw_scaled_sprite("main_box", "main_box.png", 418, 161);
-
-# Dark Souls 3 logo 
-draw_scaled_sprite("ds3_logo", "darksouls3_logo.png", 191, 956);
-
-
+draw_scaled_sprite("main_box", global.images["main_box"], 418, 161);
+draw_scaled_sprite("ds3_logo", global.images["ds3_logo"], 191, 956);
