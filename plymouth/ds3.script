@@ -1,0 +1,34 @@
+# Set background to black
+Window.SetBackgroundTopColor(0, 0, 0);
+Window.SetBackgroundBottomColor(0, 0, 0);
+
+# Reference resolution (your design base)
+ref_width = 1920.0;
+ref_height = 1080.0;
+
+# Actual screen resolution
+screen_width = Window.GetWidth();
+screen_height = Window.GetHeight();
+
+# Scaling ratios based on screen vs reference
+scale_x = screen_width / ref_width;
+scale_y = screen_height / ref_height;
+
+# Original image placement (designed at 1920x1080)
+img_x = 161;   # x offset
+img_y = 418;   # y offset
+img_w = 1208;  # width
+img_h = 723;   # height
+
+# Scale position and size proportionally
+scaled_x = Math.Int(img_x * scale_x);
+scaled_y = Math.Int(img_y * scale_y);
+scaled_w = Math.Int(img_w * scale_x);
+scaled_h = Math.Int(img_h * scale_y);
+
+# Load, scale, and position image
+image = Image("main_box.png");
+image_scaled = image.Scale(scaled_w, scaled_h);
+sprite = Sprite(image_scaled);
+sprite.SetPosition(scaled_x, scaled_y, 0);
+sprite.SetOpacity(1.0);
