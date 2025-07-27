@@ -5,11 +5,13 @@ ref_height = 1080.0;
 # Compute scaling factors only once
 scale_x = Window.GetWidth() / ref_width;
 scale_y = Window.GetHeight() / ref_height;
+screen_ratio = Window.GetHeight() / Window.GetWidth();
 
-# Function to scale an image proportionally based on screen size
-function scale_image_aspect_ratio(image) {
-    image_ratio  = image.GetHeight() / image.GetWidth();
-    screen_ratio = Window.GetHeight() / Window.GetWidth();
+# Function to scale, create and place a sprite from an image path
+fun draw_scaled_sprite(path, ref_x, ref_y) {
+    image = Image(path);
+
+    image_ratio = image.GetHeight() / image.GetWidth();
 
     if (screen_ratio > image_ratio) {
         scale_factor = Window.GetHeight() / image.GetHeight();
@@ -17,26 +19,23 @@ function scale_image_aspect_ratio(image) {
         scale_factor = Window.GetWidth() / image.GetWidth();
     }
 
-    return image.Scale(image.GetWidth() * scale_factor, image.GetHeight() * scale_factor);
+    scaled_w = image.GetWidth() * scale_factor;
+    scaled_h = image.GetHeight() * scale_factor;
+
+    actual_x = Math.Int(ref_x * scale_x);
+    actual_y = Math.Int(ref_y * scale_y);
+
+    scaled_image = image.Scale(scaled_w, scaled_h);
+    sprite = Sprite(scaled_image);
+    sprite.SetPosition(actual_x, actual_y, 0);
 }
 
-# Function to convert a (x, y) position from ref resolution to actual screen coordinates
-function scaled_position(x, y) {
-    return [Math.Int(x * scale_x), Math.Int(y * scale_y)];
-}
+# Set background to black
+Window.SetBackgroundTopColor(0, 0, 0);
+Window.SetBackgroundBottomColor(0, 0, 0);
 
-# === MAIN BOX ===
-main_box_image = Image("main_box.png");
-main_box_scaled = scale_image_aspect_ratio(main_box_image);
-pos_main_box = scaled_position(418, 161);
+# Draw main box
+draw_scaled_sprite("main_box.png", 418, 161);
 
-main_box_sprite = Sprite(main_box_scaled);
-main_box_sprite.SetPosition(pos_main_box[0], pos_main_box[1], 0);
-
-# === DARK SOULS LOGO ===
-ds_logo = Image("darksouls3_logo.png");
-ds_logo_scaled = scale_image_aspect_ratio(ds_logo);
-pos_logo = scaled_position(191, 956);
-
-ds_logo_sprite = Sprite(ds_logo_scaled);
-ds_logo_sprite.SetPosition(pos_logo[0], pos_logo[1], 0);
+# Draw DS3 logo
+draw_scaled_sprite("darksouls3_logo.png", 191, 956);
