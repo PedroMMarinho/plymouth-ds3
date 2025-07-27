@@ -1,41 +1,55 @@
-# Reference screen size (design baseline)
+# === Global Setup ===
+
+# Store sprites by ID
+global.sprites = [];
+
+# Reference resolution (1920x1080 layout)
 ref_width = 1920.0;
 ref_height = 1080.0;
 
-# Compute scaling factors only once
+# Compute scale relative to current screen
 scale_x = Window.GetWidth() / ref_width;
 scale_y = Window.GetHeight() / ref_height;
 screen_ratio = Window.GetHeight() / Window.GetWidth();
 
-# Function to scale, create and place a sprite from an image path
-fun draw_scaled_sprite(path, ref_x, ref_y) {
-    image = Image(path);
-
-    image_ratio = image.GetHeight() / image.GetWidth();
+# === Draw a scaled sprite based on ref_x, ref_y in reference resolution ===
+fun draw_scaled_sprite(id, path, ref_x, ref_y) {
+    img = Image(path);
+    image_ratio = img.GetHeight() / img.GetWidth();
 
     if (screen_ratio > image_ratio) {
-        scale_factor = Window.GetHeight() / image.GetHeight();
+        scale_factor = Window.GetHeight() / img.GetHeight();
     } else {
-        scale_factor = Window.GetWidth() / image.GetWidth();
+        scale_factor = Window.GetWidth() / img.GetWidth();
     }
 
-    scaled_w = image.GetWidth() * scale_factor;
-    scaled_h = image.GetHeight() * scale_factor;
+    scaled_w = img.GetWidth() * scale_factor;
+    scaled_h = img.GetHeight() * scale_factor;
 
     actual_x = Math.Int(ref_x * scale_x);
     actual_y = Math.Int(ref_y * scale_y);
 
-    scaled_image = image.Scale(scaled_w, scaled_h);
-    sprite = Sprite(scaled_image);
-    sprite.SetPosition(actual_x, actual_y, 0);
+    Plymouth.Debug("Drawing [" + id + "] @ (" + actual_x + "," + actual_y + ") scaled " + scale_factor);
+
+    img_scaled = img.Scale(scaled_w, scaled_h);
+    spr = Sprite(img_scaled);
+    spr.SetPosition(actual_x, actual_y, 0);
+
+    # Store sprite globally
+    global.sprites[id] = spr;
 }
 
-# Set background to black
-Window.SetBackgroundTopColor(0, 0, 0);
-Window.SetBackgroundBottomColor(0, 0, 0);
+# === Background Setup ===
 
-# Draw main box
-draw_scaled_sprite("main_box.png", 418, 161);
+Window.SetBackgroundTopColor(0.0, 0.0, 0.0);
+Window.SetBackgroundBottomColor(0.0, 0.0, 0.0);
 
-# Draw DS3 logo
-draw_scaled_sprite("darksouls3_logo.png", 191, 956);
+# === Draw Sprites ===
+
+# Main menu background box 
+draw_scaled_sprite("main_box", "main_box.png", 418, 161);
+
+# Dark Souls 3 logo 
+draw_scaled_sprite("ds3_logo", "darksouls3_logo.png", 191, 956);
+
+
