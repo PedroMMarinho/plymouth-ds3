@@ -4,8 +4,8 @@ ref_height = 1080.0;
 scale_x = Window.GetWidth() / ref_width;
 scale_y = Window.GetHeight() / ref_height;
 
-desired_x = Math.Int(161 * scale_x);
-desired_y = Math.Int(418 * scale_y);
+desired_x = Math.Int(418 * scale_x);
+desired_y = Math.Int(161 * scale_y);
 
 # Image loading and aspect-ratio scaling (like in the example)
 image = Image("main_box.png");
