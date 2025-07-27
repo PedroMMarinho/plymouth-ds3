@@ -1,58 +1,26 @@
-# === Global Constants ===
-
 ref_width = 1920.0;
 ref_height = 1080.0;
 
 scale_x = Window.GetWidth() / ref_width;
 scale_y = Window.GetHeight() / ref_height;
+
+desired_x = Math.Int(418 * scale_x);
+desired_y = Math.Int(161 * scale_y);
+
+# Image loading and aspect-ratio scaling 
+image = Image("main_box.png");
+
+image_ratio = image.GetHeight() / image.GetWidth();
 screen_ratio = Window.GetHeight() / Window.GetWidth();
 
-# === Helper Functions ===
+if (screen_ratio > image_ratio)
+  scale_factor = Window.GetHeight() / image.GetHeight();
+else
+  scale_factor = Window.GetWidth() / image.GetWidth();
 
-# Calculate the scale factor to maintain aspect ratio
-fun get_aspect_ratio_scale(image) {
-    image_ratio = image.GetHeight() / image.GetWidth();
-    if (screen_ratio > image_ratio) {
-        return Window.GetHeight() / image.GetHeight();
-    } else {
-        return Window.GetWidth() / image.GetWidth();
-    }
-}
+scaled_w = image.GetWidth() * scale_factor;
+scaled_h = image.GetHeight() * scale_factor;
 
-# Calculate centered position
-fun get_centered_position(image) {
-    x = (Window.GetWidth() / 2) - (image.GetWidth() / 2);
-    y = (Window.GetHeight() / 2) - (image.GetHeight() / 2);
-    return [x, y];
-}
-
-# Convert a ref resolution (x, y) to actual screen coordinates
-fun scale_position(x, y) {
-    return [Math.Int(x * scale_x), Math.Int(y * scale_y)];
-}
-
-# === Background ===
-
-Window.SetBackgroundTopColor(0.0, 0.0, 0.0);
-Window.SetBackgroundBottomColor(0.0, 0.0, 0.0);
-
-# === MAIN BOX ===
-
-main_box = {};
-main_box.image = Image("main_box.png");
-main_box.scale = get_aspect_ratio_scale(main_box.image);
-main_box.image_scaled = main_box.image.Scale(main_box.image.GetWidth() * main_box.scale, main_box.image.GetHeight() * main_box.scale);
-main_box.sprite = Sprite(main_box.image_scaled);
-main_box.pos = scale_position(418, 161);
-main_box.sprite.SetPosition(main_box.pos[0], main_box.pos[1], 1);
-main_box.sprite.SetOpacity(1);
-
-# === LOGO ===
-
-ds_logo.image = Image("darksouls3_logo.png");
-ds_logo.scale = get_aspect_ratio_scale(ds_logo.image);
-ds_logo.image_scaled = ds_logo.image.Scale(ds_logo.image.GetWidth() * ds_logo.scale, ds_logo.image.GetHeight() * ds_logo.scale);
-ds_logo.sprite = Sprite(ds_logo.image_scaled);
-ds_logo.pos = scale_position(191, 956);
-ds_logo.sprite.SetPosition(ds_logo.pos[0], ds_logo.pos[1], 1);
-ds_logo.sprite.SetOpacity(1);
+image_scaled = image.Scale(scaled_w, scaled_h);
+sprite = Sprite(image_scaled);
+sprite.SetPosition(desired_x, desired_y, 0);
