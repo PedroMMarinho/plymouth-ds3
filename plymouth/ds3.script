@@ -1,0 +1,28 @@
+
+# Set Background to black
+
+Window.SetBackgroundTopColor(0, 0, 0);
+Window.SetBackgroundBottomColor(0, 0, 0);
+
+# Get Scaling ratio
+
+ref_width = 1920.0;
+ref_height = 1080.0;
+
+scale_x = Window.GetWidth() / ref_width;
+scale_y = Window.GetHeight() / ref_height;
+
+img_x = 161;
+img_y = 418;
+img_w = 1208;  
+img_h = 723;  
+
+scaled_x = Math.Int(img_x * scale_x);
+scaled_y = Math.Int(img_y * scale_y);
+scaled_w = Math.Int(img_w * scale_x);
+scaled_h = Math.Int(img_h * scale_y);
+
+image = Image("main_box.png");
+image_scaled = image.Scale(scaled_w, scaled_h);
+sprite = Sprite(image_scaled);
+sprite.SetPosition(scaled_x, scaled_y, 0);
