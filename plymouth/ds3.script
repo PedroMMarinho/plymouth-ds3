@@ -1,26 +1,42 @@
+# Reference screen size (design baseline)
 ref_width = 1920.0;
 ref_height = 1080.0;
 
+# Compute scaling factors only once
 scale_x = Window.GetWidth() / ref_width;
 scale_y = Window.GetHeight() / ref_height;
 
-desired_x = Math.Int(418 * scale_x);
-desired_y = Math.Int(161 * scale_y);
+# Function to scale an image proportionally based on screen size
+function scale_image_aspect_ratio(image) {
+    image_ratio  = image.GetHeight() / image.GetWidth();
+    screen_ratio = Window.GetHeight() / Window.GetWidth();
 
-# Image loading and aspect-ratio scaling (like in the example)
-image = Image("main_box.png");
+    if (screen_ratio > image_ratio) {
+        scale_factor = Window.GetHeight() / image.GetHeight();
+    } else {
+        scale_factor = Window.GetWidth() / image.GetWidth();
+    }
 
-image_ratio = image.GetHeight() / image.GetWidth();
-screen_ratio = Window.GetHeight() / Window.GetWidth();
+    return image.Scale(image.GetWidth() * scale_factor, image.GetHeight() * scale_factor);
+}
 
-if (screen_ratio > image_ratio)
-  scale_factor = Window.GetHeight() / image.GetHeight();
-else
-  scale_factor = Window.GetWidth() / image.GetWidth();
+# Function to convert a (x, y) position from ref resolution to actual screen coordinates
+function scaled_position(x, y) {
+    return [Math.Int(x * scale_x), Math.Int(y * scale_y)];
+}
 
-scaled_w = image.GetWidth() * scale_factor;
-scaled_h = image.GetHeight() * scale_factor;
+# === MAIN BOX ===
+main_box_image = Image("main_box.png");
+main_box_scaled = scale_image_aspect_ratio(main_box_image);
+pos_main_box = scaled_position(418, 161);
 
-image_scaled = image.Scale(scaled_w, scaled_h);
-sprite = Sprite(image_scaled);
-sprite.SetPosition(desired_x, desired_y, 0);
+main_box_sprite = Sprite(main_box_scaled);
+main_box_sprite.SetPosition(pos_main_box[0], pos_main_box[1], 0);
+
+# === DARK SOULS LOGO ===
+ds_logo = Image("darksouls3_logo.png");
+ds_logo_scaled = scale_image_aspect_ratio(ds_logo);
+pos_logo = scaled_position(191, 956);
+
+ds_logo_sprite = Sprite(ds_logo_scaled);
+ds_logo_sprite.SetPosition(pos_logo[0], pos_logo[1], 0);
