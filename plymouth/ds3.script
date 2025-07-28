@@ -1,26 +1,56 @@
+# === Background ===
+Window.SetBackgroundTopColor(0.0, 0.0, 0.0);
+Window.SetBackgroundBottomColor(0.0, 0.0, 0.0);
+
 ref_width = 1920.0;
 ref_height = 1080.0;
 
-scale_x = Window.GetWidth() / ref_width;
-scale_y = Window.GetHeight() / ref_height;
+# === MAIN BOX ===
+main_box.image = Image("main_box.png");
+main_box.sprite = Sprite(main_box.image);
+main_box.pos = [418, 161];
+main_box.sprite.SetPosition(main_box.pos[0], main_box.pos[1], 1);
+main_box.sprite.SetOpacity(1);
 
-desired_x = Math.Int(418 * scale_x);
-desired_y = Math.Int(161 * scale_y);
+# === LOGO ===
+ds_logo.image = Image("darksouls3_logo.png");
+ds_logo.sprite = Sprite(ds_logo.image);
+ds_logo.pos = [191, 956];
+ds_logo.sprite.SetPosition(ds_logo.pos[0], ds_logo.pos[1], 1);
+ds_logo.sprite.SetOpacity(1);
 
-# Image loading and aspect-ratio scaling (like in the example)
-image = Image("main_box.png");
+# === LOADING ANIMATION FROM SPRITESHEET ===
+animation_first_frame = 0;
+animation_last_frame = 31; 
+animation_current_frame = 0;
+# Change to make the animation faster/slower
+animation_frame_delay = 2;  
+progress = 0;
 
-image_ratio = image.GetHeight() / image.GetWidth();
-screen_ratio = Window.GetHeight() / Window.GetWidth();
+# Load and store all cropped frame images
+for (frame = animation_first_frame; frame <= animation_last_frame; frame++) {
+    animation_images[frame] = Image("bonefire_ani/loading_icon-" + frame + ".png");
+}
 
-if (screen_ratio > image_ratio)
-  scale_factor = Window.GetHeight() / image.GetHeight();
-else
-  scale_factor = Window.GetWidth() / image.GetWidth();
+# Create a sprite and position it at (188, 848)
+animation_sprite = Sprite();
+animation_sprite.SetX(188);
+animation_sprite.SetY(848);
+animation_sprite.SetZ(1);
 
-scaled_w = image.GetWidth() * scale_factor;
-scaled_h = image.GetHeight() * scale_factor;
 
-image_scaled = image.Scale(scaled_w, scaled_h);
-sprite = Sprite(image_scaled);
-sprite.SetPosition(desired_x, desired_y, 0);
+# Set the animation refresh function
+fun on_refresh() {
+    progress += 1;
+
+    # Only update image every animation_frame_delay frames
+    if (progress % animation_frame_delay == 0) {
+        animation_current_frame += 1;
+        if (animation_current_frame > animation_last_frame) {
+            animation_current_frame = animation_first_frame;
+        }
+        animation_sprite.SetImage(animation_images[animation_current_frame]);
+    }
+}
+
+Plymouth.SetRefreshFunction(on_refresh);
