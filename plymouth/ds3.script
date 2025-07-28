@@ -16,7 +16,7 @@ main_box.sprite.SetOpacity(1);
 ds_logo.image = Image("darksouls3_logo.png");
 ds_logo.sprite = Sprite(ds_logo.image);
 ds_logo.pos = [191, 956];
-ds_logo.sprite.SetPosition(ds_logo.pos[0], ds_logo.pos[1], 1);
+ds_logo.sprite.SetPosition(ds_logo.pos[0], ds_logo.pos[1], 2);
 ds_logo.sprite.SetOpacity(1);
 
 # === LOADING ANIMATION FROM SPRITESHEET ===
@@ -36,7 +36,7 @@ for (frame = animation_first_frame; frame <= animation_last_frame; frame++) {
 animation_sprite = Sprite();
 animation_sprite.SetX(188);
 animation_sprite.SetY(848);
-animation_sprite.SetZ(1);
+animation_sprite.SetZ(2);
 
 
 # Set the animation refresh function
@@ -66,3 +66,36 @@ item_scaled_image = item_image.Scale(item_scaled_width, item_scaled_height);
 item_sprite = Sprite(item_scaled_image);
 item_sprite.SetPosition(570, 249, 2);
 item_sprite.SetOpacity(1);
+
+fun create_text_color(text, x, y, r, g, b, font) {
+    t.image = Image.Text(text, r, g, b, 1, font);
+    s.image = Image.Text(text, r/4, g/4, b/4, 1, font);
+
+    t.sprite = Sprite(t.image);
+    s.sprite = Sprite(s.image);
+    t.sprite.SetPosition(x, y, 3);
+    s.sprite.SetPosition(x + 2, y + 2, 2);
+
+    t.sprite.SetOpacity(1);
+    s.sprite.SetOpacity(1);
+	
+    # To be removed
+    #debugText = "height" + t.image.GetHeight() + " and width " + t.image.GetWidth() ;
+    #rigga = Image.Text(debugText , 0.86,0.72,0.25,1,font);
+    #rigga.sprite = Sprite(rigga);
+    #rigga.sprite.SetPosition(200,200,100);
+
+    return [t, s, text];
+}
+
+# === Define fonts with sizes ===
+font_title = "FOT-Matisse Pro 22";                              
+font_description = "FOT-Matisse Pro 16";                              
+
+# === Create Title Text ===
+title_text = "Ushigatana\n";
+description_text = "A unique katana\n";
+
+# === Create text elements ===
+item_title = create_text_color(title_text, 672, 309, 165/255.0, 144/255.0, 103/255.0, font_title);
+item_description = create_text_color(description_text, 672, 374, 208/255.0, 208/255.0, 208/255.0, font_description);
