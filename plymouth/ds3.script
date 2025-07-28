@@ -54,3 +54,15 @@ fun on_refresh() {
 }
 
 Plymouth.SetRefreshFunction(on_refresh);
+
+# === ITEM IMAGE ===
+item_image = Image("item.png");
+
+item_scaled_width = Math.Int(item_image.GetWidth() * 0.6);
+item_scaled_height = Math.Int(item_image.GetHeight() * 0.6);
+item_scaled_image = item_image.Scale(item_scaled_width, item_scaled_height);
+
+
+item_sprite = Sprite(item_scaled_image);
+item_sprite.SetPosition(570, 249, 2);
+item_sprite.SetOpacity(1);
