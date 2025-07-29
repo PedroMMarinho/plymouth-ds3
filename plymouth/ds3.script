@@ -56,7 +56,7 @@ fun on_refresh() {
 Plymouth.SetRefreshFunction(on_refresh);
 
 # === ITEM IMAGE ===
-item_image = Image("sprites/bloodred_moss_clump.png");
+item_image = Image("sprites/sage_ring.png");
 
 item_scaled_width = Math.Int(item_image.GetWidth() * 0.6);
 item_scaled_height = Math.Int(item_image.GetHeight() * 0.6);
@@ -93,11 +93,48 @@ font_title = "FOT-Matisse Pro 22";
 font_description = "FOT-Matisse Pro 16";                              
 
 # === Create Title Text ===
-title_text = "Bloodred Moss Clump\n";
+title_text = "Sage Ring\n";
 
 # === Create Description Text ===
-description_text = ["Red moss clump used as maggot repellent.", "Reduces bleeding build-up.", "Bleeding builds up when attacked by sharp blades or spikes, and once triggered causes severe damage. Use this moss clump before it reaches that point."];
+description_text = ["A ring given to Farron's Undead Legion by one of the preacher twins, known more commonly as the Crystal Sages.", "", "Shortens spell casting time.", "", "The sorcerers of Farron's Abyss Watchers were known to be lonesome warriors who would only rely upon more pragmatic spells."];
 
 # === Create text elements ===
 item_title = create_text_color(title_text, 672, 309, 165/255.0, 144/255.0, 103/255.0, font_title);
-item_description = create_text_color(description_text, 672, 373, 208/255.0, 208/255.0, 208/255.0, font_description);
+#item_description = create_text_color(description_text, 672, 373, 208/255.0, 208/255.0, 208/255.0, font_description);
+
+
+# === Constants ===
+max_width = 799;
+start_x = 672;
+start_y = 373;
+line_spacing = 28;
+
+fun SplitString(str, delimiter) {
+    result = [];
+    current_word = "";
+    result_idx = 0;
+
+    for (i = 0; i < str.Length(); i += 1) {
+        c = str.CharAt(i);
+
+        if (c == delimiter.CharAt(0)) {
+
+             if (current_word != "") {
+                result[result_idx] = current_word;
+                current_word = "";
+                result_idx+=1;   
+             }
+
+        } else {
+               current_word += c;
+        }
+    }
+
+    if (current_word != "") {
+        result[result_idx] = current_word;
+    }
+
+    return result;
+}
+
+
