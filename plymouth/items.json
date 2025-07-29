@@ -71,7 +71,7 @@
     },
     {
         "name": "Sage Ring",
-        "description": "A ring given to Farron's Undead Legion by one of the preacher twins, known more commonly as the Crystal Sages.\nShortens spell casting time.\nThe sorcerers of Farron's Abyss Watchers were known to be lonesome warriors who would only rely upon more pragmatic spells.",
+        "description": "A ring given to Farron's Undead Legion by one of the preacher twins, known more commonly as the Crystal Sages.\n \nShortens spell casting time.\nThe sorcerers of Farron's Abyss Watchers were known to be lonesome warriors who would only rely upon more pragmatic spells.",
         "image": "sprites/sage_ring.png"
     }
 ]

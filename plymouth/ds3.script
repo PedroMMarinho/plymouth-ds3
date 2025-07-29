@@ -56,7 +56,7 @@ fun on_refresh() {
 Plymouth.SetRefreshFunction(on_refresh);
 
 # === ITEM IMAGE ===
-item_image = Image("item.png");
+item_image = Image("sprites/bloodred_moss_clump.png");
 
 item_scaled_width = Math.Int(item_image.GetWidth() * 0.6);
 item_scaled_height = Math.Int(item_image.GetHeight() * 0.6);
@@ -74,7 +74,7 @@ fun create_text_color(text, x, y, r, g, b, font) {
     t.sprite = Sprite(t.image);
     s.sprite = Sprite(s.image);
     t.sprite.SetPosition(x, y, 3);
-    s.sprite.SetPosition(x + 2, y + 2, 2);
+    s.sprite.SetPosition(x + 1, y + 1, 2);
 
     t.sprite.SetOpacity(1);
     s.sprite.SetOpacity(1);
@@ -88,14 +88,16 @@ fun create_text_color(text, x, y, r, g, b, font) {
     return [t, s, text];
 }
 
-# === Define fonts with sizes ===
+# === Define fonts ===
 font_title = "FOT-Matisse Pro 22";                              
 font_description = "FOT-Matisse Pro 16";                              
 
 # === Create Title Text ===
-title_text = "Ushigatana\n";
-description_text = "A unique katana\n";
+title_text = "Bloodred Moss Clump\n";
+
+# === Create Description Text ===
+description_text = ["Red moss clump used as maggot repellent.", "Reduces bleeding build-up.", "Bleeding builds up when attacked by sharp blades or spikes, and once triggered causes severe damage. Use this moss clump before it reaches that point."];
 
 # === Create text elements ===
 item_title = create_text_color(title_text, 672, 309, 165/255.0, 144/255.0, 103/255.0, font_title);
-item_description = create_text_color(description_text, 672, 374, 208/255.0, 208/255.0, 208/255.0, font_description);
+item_description = create_text_color(description_text, 672, 373, 208/255.0, 208/255.0, 208/255.0, font_description);
