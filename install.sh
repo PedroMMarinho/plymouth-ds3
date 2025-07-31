@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+## TODO NEED TO CHANGE THIS INSTALLATION SCRIPT 
 # Where to install your theme
 PLYMOUTH_THEME_BASEDIR=${PLYMOUTH_THEME_BASEDIR:=/usr/share/plymouth/themes/ds3}
 FONTCONFIG_PATH=${FONTCONFIG_PATH:=/etc/fonts/conf.d/}
