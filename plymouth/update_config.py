@@ -1,15 +1,19 @@
 import json
 import random
 import re
+import os
 
-# Load items
-with open("items.json", "r", encoding="utf-8") as f:
+script_dir = os.path.dirname(os.path.realpath(__file__))
+
+items_path = os.path.join(script_dir, "items.json")
+script_path = os.path.join(script_dir, "ds3.script")
+
+with open(items_path, "r", encoding="utf-8") as f:
     items = json.load(f)
 
 # Select a random item
-entry = random.choice(items) 
+entry = random.choice(items)
 
-# Image path
 image_path = entry["image"]
 
 # Title: clean it and ensure it ends with a literal \n
@@ -32,9 +36,8 @@ if escaped_parts and escaped_parts[-1] == '""':
 
 description_array = f"[{', '.join(escaped_parts)}]"
 
-# --- Read and update script ---
-
-with open("ds3.script", "r", encoding="utf-8") as f:
+# Read the ds3.script file
+with open(script_path, "r", encoding="utf-8") as f:
     script = f.read()
 
 # Replace image path
@@ -44,7 +47,7 @@ script = re.sub(
     script
 )
 
-# Replace title text - Fixed regex pattern
+# Replace title text
 script = re.sub(
     r'(# === Create Title Text ===\n)title_text = ".*?";',
     rf'\1title_text = "{title}";',
@@ -52,7 +55,7 @@ script = re.sub(
     flags=re.DOTALL
 )
 
-# Replace description text array - Fixed regex pattern  
+# Replace description text array
 script = re.sub(
     r'(# === Create Description Text ===\n)description_text = \[.*?\];',
     rf'\1description_text = {description_array};',
@@ -60,8 +63,8 @@ script = re.sub(
     flags=re.DOTALL
 )
 
-# Save back
-with open("ds3.script", "w", encoding="utf-8") as f:
+# Save updated script back
+with open(script_path, "w", encoding="utf-8") as f:
     f.write(script)
 
 print(f"✅ Updated with: {entry['name']} ({image_path})")
