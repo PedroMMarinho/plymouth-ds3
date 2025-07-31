@@ -1,0 +1,10 @@
+[Unit]
+Description=Update Plymouth Theme
+After=multi-user.target hibernate.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /usr/share/plymouth/themes/ds3/update_config.py
+
+[Install]
+WantedBy=multi-user.target hibernate.target
