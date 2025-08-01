@@ -10,7 +10,18 @@ script_path = os.path.join(script_dir, "ds3.script")
 with open(items_path, "r", encoding="utf-8") as f:
     items = json.load(f)
 
-entry = random.choice(items)
+with open(script_path, "r", encoding="utf-8") as f:
+    current_script = f.read()
+
+current_image_match = re.search(r'item_image = Image\("(.*?)"\);', current_script)
+current_image = current_image_match.group(1) if current_image_match else None
+
+available_items = [item for item in items if item["image"] != current_image]
+
+if not available_items:
+    available_items = items
+
+entry = random.choice(available_items)
 image_path = entry["image"]
 
 title = entry["name"].strip() + '\\\\n'

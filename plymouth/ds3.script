@@ -111,7 +111,7 @@ fun on_refresh() {
 Plymouth.SetRefreshFunction(on_refresh);
 
 # === ITEM IMAGE ===
-item_image = Image("sprites/purple_moss_clump.png");
+item_image = Image("sprites/homeward_bone.png");
 
 item_scaled_width = Math.Int(item_image.GetWidth() * 0.6);
 item_scaled_height = Math.Int(item_image.GetHeight() * 0.6);
@@ -143,10 +143,10 @@ font_title = "FOT-Matisse Pro 22";
 font_description = "FOT-Matisse Pro 16";                              
 
 # === Create Title Text ===
-title_text = "Purple Moss Clump\n";
+title_text = "Homeward Bone\n";
 
 # === Create Description Text ===
-description_text = ["Medicinal purple moss clump.", "Reduces poison build-up. Cures poison.", "", "Poison builds up in the body, and when it breaks out, it causes gradual damage over a period of time.", "", "Poison can be exasperating, so be sure to carry sufficient moss clumps when traveling to a blighted area."];
+description_text = ["Bone fragment reduced to white ash. Return to last bonfire used for resting, or to the shrine bonfire.", "", "Bonfires are sustained by bones of the Undead.", "", "In rare cases, their previous owner's strong urge to seek bonfires enchants their bones with a homeward instinct."];
 
 # === Create text elements ===
 item_title = create_text_color(title_text, 672, 309, 165/255.0, 144/255.0, 103/255.0, font_title);
