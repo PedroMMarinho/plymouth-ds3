@@ -24,7 +24,7 @@ animation_first_frame = 0;
 animation_last_frame = 31; 
 animation_current_frame = 0;
 # Change to make the animation faster/slower
-animation_frame_delay = 2;  
+animation_frame_delay = 3;  
 progress = 0;
 
 # Load and store all cropped frame images
@@ -39,9 +39,64 @@ animation_sprite.SetY(848);
 animation_sprite.SetZ(2);
 
 
+# === FADE VARIABLES ===
+fade_in_duration = 35; 
+fade_in_progress = 0;
+fade_out_duration = 20; 
+fade_out_progress = 0;
+is_fading_out = 0;
+
+
+# Depending on Mode 
+current_mode = Plymouth.GetMode();  # "boot", "shutdown", etc.
+
+enable_fade_in = 0;
+
+if (current_mode == "boot") {
+    enable_fade_in = 1;
+}
+
+
+# === BLACK OVERLAY FOR FADE-IN ===
+overlay.image = Image("black.png");
+overlay.scaled_image = overlay.image.Scale(Window.GetWidth(), Window.GetHeight());
+overlay.sprite = Sprite(overlay.scaled_image);
+overlay.sprite.SetPosition(0, 0, 999);
+overlay.sprite.SetOpacity(1); 
+
+
+fun update_fade_out() {
+    if (fade_out_progress < fade_out_duration) {
+        overlay_opacity = (1.0 - (fade_out_progress / fade_out_duration));
+        overlay_opacity *= overlay_opacity;  
+        overlay.sprite.SetOpacity(1.0 - overlay_opacity);  
+        fade_out_progress += 1;
+    } else {
+        overlay.sprite.SetOpacity(1.0);  
+    }
+}
+
+
+# === FADE-IN FUNCTION ===
+fun update_fade_in() {
+    if (fade_in_progress < fade_in_duration) {
+        overlay_opacity = 1.0 - ((fade_in_progress / fade_in_duration) * (fade_in_progress / fade_in_duration));
+        overlay.sprite.SetOpacity(overlay_opacity);
+        fade_in_progress++;
+    }
+}
+
+
 # Set the animation refresh function
 fun on_refresh() {
-    progress += 1;
+    progress += 1;    
+    
+    if (!is_fading_out && enable_fade_in) {
+     update_fade_in();
+    }
+     else{
+        update_fade_out();
+    }
 
     # Only update image every animation_frame_delay frames
     if (progress % animation_frame_delay == 0) {
@@ -56,16 +111,16 @@ fun on_refresh() {
 Plymouth.SetRefreshFunction(on_refresh);
 
 # === ITEM IMAGE ===
-item_image = Image("sprites/sage_ring.png");
+item_image = Image("sprites/white_sign_soapstone.png");
 
 item_scaled_width = Math.Int(item_image.GetWidth() * 0.6);
 item_scaled_height = Math.Int(item_image.GetHeight() * 0.6);
 item_scaled_image = item_image.Scale(item_scaled_width, item_scaled_height);
 
-
 item_sprite = Sprite(item_scaled_image);
 item_sprite.SetPosition(570, 249, 2);
 item_sprite.SetOpacity(1);
+
 
 fun create_text_color(text, x, y, r, g, b, font) {
     t.image = Image.Text(text, r, g, b, 1, font);
@@ -79,25 +134,25 @@ fun create_text_color(text, x, y, r, g, b, font) {
     t.sprite.SetOpacity(1);
     s.sprite.SetOpacity(1);
 	
+
     return [t, s, text];
 }
 
-# === Define fonts ===
+# === Define fonts with sizes ===
 font_title = "FOT-Matisse Pro 22";                              
 font_description = "FOT-Matisse Pro 16";                              
 
 # === Create Title Text ===
-title_text = "Sage Ring\n";
+title_text = "White Sign Soapstone\n";
 
 # === Create Description Text ===
-description_text = ["A ring given to Farron's Undead Legion by one of the preacher twins, known more commonly as the Crystal Sages.", "", "Shortens spell casting time.", "", "The sorcerers of Farron's Abyss Watchers were known to be lonesome warriors who would only rely upon more pragmatic spells."];
+description_text = ["Online play item.", "", "Create a co-op summon sign.", "", "Be summoned to another world as a phantom through your sign, and defeat the area boss to gain the strength of flame.", "", "The nature of Lothric is murky, unclear.", "", "The White Sign Soapstone allows Unkindled to assist one another."];
 
 # === Create text elements ===
 item_title = create_text_color(title_text, 672, 309, 165/255.0, 144/255.0, 103/255.0, font_title);
 
-
 # === Constants ===
-max_width = 570;
+max_width = 620;
 start_x = 672;
 start_y = 373;
 line_spacing = 31;
@@ -186,3 +241,11 @@ fun wrap_and_render_text(lines, x, y, r, g, b, font) {
 }
 
 rendered_text_description = wrap_and_render_text(description_text, start_x, start_y, 208/255.0, 208/255.0, 208/255.0, font_description);
+
+# === QUIT FUNCTION FOR FADE-OUT ===
+fun on_quit() {
+    is_fading_out = 1;
+    fade_out_progress = 0;
+}
+
+Plymouth.SetQuitFunction(on_quit);
