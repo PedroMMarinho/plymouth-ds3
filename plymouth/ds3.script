@@ -111,7 +111,7 @@ fun on_refresh() {
 Plymouth.SetRefreshFunction(on_refresh);
 
 # === ITEM IMAGE ===
-item_image = Image("sprites/homeward_bone.png");
+item_image = Image("sprites/soul_of_slave_knight_gael.png");
 
 item_scaled_width = Math.Int(item_image.GetWidth() * 0.6);
 item_scaled_height = Math.Int(item_image.GetHeight() * 0.6);
@@ -143,10 +143,10 @@ font_title = "FOT-Matisse Pro 22";
 font_description = "FOT-Matisse Pro 16";                              
 
 # === Create Title Text ===
-title_text = "Homeward Bone\n";
+title_text = "Soul of Slave Knight Gael\n";
 
 # === Create Description Text ===
-description_text = ["Bone fragment reduced to white ash. Return to last bonfire used for resting, or to the shrine bonfire.", "", "Bonfires are sustained by bones of the Undead.", "", "In rare cases, their previous owner's strong urge to seek bonfires enchants their bones with a homeward instinct."];
+description_text = ["Soul of Slave Knight Gael.", "One of the twisted souls, steeped in strength.", "", "Use to acquire many souls, or transpose to extract its true strength.", "", "The red-hooded, wandering slave knight Gael sought the blood of the dark soul as pigment for the Painted World.", "But Gael knew he was no Champion, that the dark soul would likely ruin him, and that he had little hope of a safe return."];
 
 # === Create text elements ===
 item_title = create_text_color(title_text, 672, 309, 165/255.0, 144/255.0, 103/255.0, font_title);
