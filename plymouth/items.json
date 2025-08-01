@@ -193,5 +193,10 @@
         "name": "Soul of Slave Knight Gael",
         "description": "Soul of Slave Knight Gael. \nOne of the twisted souls, steeped in strength.\n\nUse to acquire many souls, or transpose to extract its true strength.\n\nThe red-hooded, wandering slave knight Gael sought the blood of the dark soul as pigment for the Painted World.\nBut Gael knew he was no Champion, that the dark soul would likely ruin him, and that he had little hope of a safe return.",
         "image": "sprites/soul_of_slave_knight_gael.png"
+    },
+    {
+        "name" : "Bruno Fortes",
+        "description" : "Warrior of Mozambique.\nMaster of the forbidden “vou beber água” technique — a move so powerful it leaves enemies confused, hydrated, and emotionally damaged.\n\nDefeated El Chapo, self-declared president of Mozambique, using nothing but a plastic bottle and pure disrespect.\n\nSworn enemy of FRELIMO, wielder of bureaucracy and lag. Fights alongside Venâncio Mondlane to restore the lost kingdom of Lidar, one gulp at a time.\n\nIs he a hero? A menace? Or just really thirsty? Nobody knows.",
+        "image" : "sprites/bruno_fortes.png"
     }
 ]
