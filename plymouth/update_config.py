@@ -4,35 +4,32 @@ import re
 import os
 
 script_dir = os.path.dirname(os.path.realpath(__file__))
-
 items_path = os.path.join(script_dir, "items.json")
 script_path = os.path.join(script_dir, "ds3.script")
 
 with open(items_path, "r", encoding="utf-8") as f:
     items = json.load(f)
 
-# Select a random item
 entry = random.choice(items)
-
 image_path = entry["image"]
 
-# Title: clean it and ensure it ends with a literal \n
 title = entry["name"].strip() + '\\\\n'
 
-# Description: Split by single \n for each array entry, add empty string after each part
-description_parts = entry["description"].split('\n')
+description = entry["description"]
 
-# Remove empty parts (handles duplicate \n at the end)
-description_parts = [part.strip() for part in description_parts if part.strip()]
+paragraphs = description.split('\n\n')
 
 escaped_parts = []
-for part in description_parts:
-    escaped_part = part.replace('"', '\\\\"')
-    escaped_parts.append(f'"{escaped_part}"')
-    escaped_parts.append('""')
-
-if escaped_parts and escaped_parts[-1] == '""':
-    escaped_parts.pop()
+for i, paragraph in enumerate(paragraphs):
+    if paragraph.strip():  
+        lines = paragraph.split('\n')
+        for line in lines:
+            if line.strip(): 
+                escaped_line = line.strip().replace('"', '\\\\"')
+                escaped_parts.append(f'"{escaped_line}"')
+    
+    if i < len(paragraphs) - 1:
+        escaped_parts.append('""')
 
 description_array = f"[{', '.join(escaped_parts)}]"
 

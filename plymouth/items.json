@@ -6,17 +6,17 @@
     },
     {
         "name": "Red Sign Soapstone",
-        "description": "Not all Dark Spirits are unsporting, or they wouldn't make use of this Soapstone.",
+        "description": "Online play item. \nCreate a hostile red invasion sign.\n\nBe summoned to another world as a dark spirit, and defeat the Host of Embers to gain the strength of fire.\n\nNot all dark spirits are unsporting, or they wouldn't make use of this soapstone.",
         "image": "sprites/red_sign_soapstone.png"
     },
     {
         "name": "Red Eye Orb",
-        "description": "Online play Item. Invade other worlds at will\nDefeat the Host of Embers of the world you have invaded to gain the strength of fire.\n\nThe red eye orb is rooted in a tiny land swallowed by darkness long ago. Some choose to put the orb to other uses. To embark on this path, enter the service of Rosaria in the Cathedral of the Deep",
+        "description": "Online play Item. \nInvade other worlds at will.\n\nDefeat the Host of Embers of the world you have invaded to gain the strength of fire.\n\nThe red eye orb is rooted in a tiny land swallowed by darkness long ago. Some choose to put the orb to other uses. To embark on this path, enter the service of Rosaria in the Cathedral of the Deep",
         "image": "sprites/red_eye_orb.png"
     },
     {
         "name": "Black Separation Crystal",
-        "description": "A charm of farewell granted to banished Undead. The crystal sends phantoms back to their homes, or you back to yours.\nBeware of fickle use of this item if you intend to nurture relations.",
+        "description": "A charm of farewell granted to banished Undead. The crystal sends phantoms back to their homes, or you back to yours.\n\nBeware of fickle use of this item if you intend to nurture relations.",
         "image": "sprites/black_separation_crystal.png"
     },
     {
@@ -26,17 +26,17 @@
     },
     {
         "name": "Estus Flask",
-        "description": "The Undead treasure these dull green flasks. Fill with Estus at bonfires, and drink to restore HP. The journey of an Undead has always traced the bonfires, and no journey of import has been made without an Estus Flask.",
+        "description": "The Undead treasure these dull green flasks. \n\nFill with Estus at bonfires, and drink to restore HP. \n\nThe journey of an Undead has always traced the bonfires, and no journey of import has been made without an Estus Flask.",
         "image": "sprites/estus_flask.png"
     },
     {
         "name": "Ashen Estus Flask",
-        "description": "Undead treasure these dull ashen flasks. Fill with Estus at bonfires, and drink to restore FP. Quite befitting of an Unkindled, an Ashen Estus Flask turns a bonfire's heat cold.",
+        "description": "Undead treasure these dull ashen flasks. \n\nFill with Estus at bonfires, and drink to restore FP. \n\nQuite befitting of an Unkindled, an Ashen Estus Flask turns a bonfire's heat cold.",
         "image": "sprites/ashen_estus_flask.png"
     },
     {
         "name": "Divine Blessing",
-        "description": "Holy water blessed by the Queen of Lothric.\n\nFully restores HP and cures ailments.\n\nThe Queen of Lothric, married to the former King Oceiros, was initially revered as a goddess of fertility and bounty. After giving birth to Ocelotte, her youngest, she quietly disappeared.",
+        "description": "Holy water blessed by the Queen of Lothric.\n\nFully restores HP and cures ailments.\n\nThe Queen of Lothric, married to the former King Oceiros, was initially revered as a goddess of fertility and bounty. \nAfter giving birth to Ocelotte, her youngest, she quietly disappeared.",
         "image": "sprites/divine_blessing.png"
     },
     {
@@ -51,12 +51,12 @@
     },
     {
         "name": "Purple Moss Clump",
-        "description": "Medicinal purple moss clump. Reduces poison build-up. Cures poison.\n\nPoison builds up in the body, and when it breaks out, it causes gradual damage over a period of time.\n\nPoison can be exasperating, so be sure to carry sufficient moss clumps when traveling to a blighted area.",
+        "description": "Medicinal purple moss clump. \nReduces poison build-up. Cures poison.\n\nPoison builds up in the body, and when it breaks out, it causes gradual damage over a period of time.\n\nPoison can be exasperating, so be sure to carry sufficient moss clumps when traveling to a blighted area.",
         "image": "sprites/purple_moss_clump.png"
     },
     {
         "name": "Blooming Purple Moss Clump",
-        "description": "Potently medicinal moss clump with a flower.\n\nReduces poison and toxin. Cures ailments.\n\nA toxin is a more vicious form of poison which quickly leads to death. Moss clumps without blooms are useless against toxin, and those who neglect to carry this flowered variety are simply courting an early demise.",
+        "description": "Potently medicinal moss clump with a flower.\nReduces poison and toxin. Cures ailments.\n\nA toxin is a more vicious form of poison which quickly leads to death. \n\nMoss clumps without blooms are useless against toxin, and those who neglect to carry this flowered variety are simply courting an early demise.",
         "image": "sprites/blooming_purple_moss_clump.png"
     },
     {
@@ -66,12 +66,132 @@
     },
     {
         "name": "Kukri",
-        "description": "Small throwing machete. Throw at enemies to cause bleeding damage.\n\nA unique weapon originally used by swordsmen of Carthus, but now popular among bandits and thieves.",
+        "description": "Small throwing machete. \nThrow at enemies to cause bleeding damage.\n\nA unique weapon originally used by swordsmen of Carthus, but now popular among bandits and thieves.",
         "image": "sprites/kukri.png"
     },
     {
         "name": "Sage Ring",
-        "description": "A ring given to Farron's Undead Legion by one of the preacher twins, known more commonly as the Crystal Sages.\n \nShortens spell casting time.\nThe sorcerers of Farron's Abyss Watchers were known to be lonesome warriors who would only rely upon more pragmatic spells.",
+        "description": "A ring given to Farron's Undead Legion by one of the preacher twins, known more commonly as the Crystal Sages.\n\nShortens spell casting time.\n\nThe sorcerers of Farron's Abyss Watchers were known to be lonesome warriors who would only rely upon more pragmatic spells.",
         "image": "sprites/sage_ring.png"
+    },
+    {
+        "name": "Throwing Knife",
+        "description": "Small throwing knife. \nThrow at enemies to inflict damage.\n\nMost items choose their wielder, and only experience can improve their effectiveness. True strength can be gained in no other way.",
+        "image": "sprites/throwing_knife.png"
+    },
+    {
+        "name": "Poison Throwing Knife",
+        "description": "A throwing knife dipped in poison. \nThrow at enemies to inflict poison damage.\n\nUsed by assassins of Londor, land of Hollows. The poison is jokingly known as Hollow's blood.",
+        "image": "sprites/poison_throwing_knife.png"
+    },
+    {
+        "name": "Firebomb",
+        "description": "Bisque urn filled with black powder. \nExplodes, inflicting fire damage.\n\nFire damage, which differs from physical damage, is highly effective against creatures of flesh, beasts, and other foes that might naturally have cause to fear the flame.",
+        "image": "sprites/firebomb.png"
+    },
+    {
+        "name": "Black Firebomb",
+        "description": "More powerful bisque urn filled with special black powder. \nExplodes, inflicting great fire damage.\n\nFire damage, which differs from physical damage, is highly effective against creatures of flesh, beasts, and other foes that might naturally have cause to fear the flame.",
+        "image": "sprites/black_firebomb.png"
+    },
+    {
+        "name": "Dung Pile",
+        "description": "Dried fecal waste material, moist on the inside.\n\nThrow at enemy to inflict toxin build-up, but also ups your own toxicity.\n\nThough the stench makes it difficult to carry on one's person, inflicting toxins on an enemy yields high damage over time. \nPerhaps some Undead have fond memories of waste. \nOr, perhaps not.",
+        "image": "sprites/dung_pile.png"
+    },
+    {
+        "name": "Alluring Skull",
+        "description": "A skull resplendent in the scent of souls. \nPrepared by evangelists of the Cathedral of the Deep.\n\nThrow to shatter, spreading souls which attract enemies. \nNot effective for all foes.",
+        "image": "sprites/alluring_skull.png"
+    },
+    {
+        "name": "Undead Hunter Charm",
+        "description": "Tool used to hunt down the Undead.\nBlocks Estus recovery within a limited area.\n\nUsed long ago by Lloyd's cleric knights on their Undead hunts. \nAlthough Allfather Lloyd is long forgotten by the Way of White, his hunts have lived on, and this charm allows one to challenge Undead without fear of tenacious healing.",
+        "image": "sprites/undead_hunter_charm.png"
+    },
+    {
+        "name": "Charcoal Pine Resin",
+        "description": "Black charcoal-like pine resin. \nTemporarily applies fire to right-hand weapon.\n\nUsed in the Undead Settlement to preserve Undead bodies after dissection, and to bury them.",
+        "image": "sprites/charcoal_pine_resin.png"
+    },
+    {
+        "name": "Gold Pine Resin",
+        "description": "Rare pine resin which emits golden sparks. \nChunks of it are even rarer.\n\nTemporarily applies lightning to right-hand weapon.\n\nIts origins are unknown, although some have speculated that it may in fact be a type of fungal resin.",
+        "image": "sprites/gold_pine_resin.png"
+    },
+    {
+        "name": "Rotten Pine Resin",
+        "description": "Pine resin that has rotted and turned poisonous. L\nikely rotten from the start.\n\nTemporarily applies poison to right-hand weapon.\n\nFarron Keep was swallowed by the rotted wood, where the blunt-horned Ghrus concoct this resin.",
+        "image": "sprites/rotten_pine_resin.png"
+    },
+    {
+        "name": "Charcoal Pine Bundle",
+        "description": "A small bundle of charcoal pine resin.\n\nQuickly applies fire to right-hand weapon.\n\nDoes not last for long, but can be used in inventive ways, such as applying it in the middle of a series of blows.",
+        "image": "sprites/charcoal_pine_bundle.png"
+    },
+    {
+        "name": "Gold Pine Bundle",
+        "description": "Rare pine resin which emits golden sparks. Collected in a small bundle.\n\nQuickly applies lightning to right-hand weapon.\n\nDoes not last for long, but can be used in inventive ways, such as applying it in the middle of a series of blows.",
+        "image": "sprites/gold_pine_bundle.png"
+    },
+    {
+        "name": "Homeward Bone",
+        "description": "Bone fragment reduced to white ash. Return to last bonfire used for resting, or to the shrine bonfire.\n\nBonfires are sustained by bones of the Undead.\n\nIn rare cases, their previous owner's strong urge to seek bonfires enchants their bones with a homeward instinct.",
+        "image": "sprites/homeward_bone.png"
+    },
+    {
+        "name": "Prism Stone",
+        "description": "Warm pebble emitting a beautiful phasing aura of seven colors, with a very rare eighth.\n\nThe prism stone does nothing special, but can serve as a path marker, or perhaps dropped off a cliff to judge height by the sound of its descent.\n\nIf a loud noise is heard upon its landing, then a fall from the ledge is surely lethal.",
+        "image": "sprites/prism_stone.png"
+    },
+    {
+        "name": "Binoculars",
+        "description": "Binoculars made of brass. Use to peer at distant scenery.\n\nTheir utility is singular, but applications many. The value of these specs depends greatly on the imagination of their owner.",
+        "image": "sprites/binoculars.png"
+    },
+    {
+        "name": "Pale Tongue",
+        "description": "Proof of a red orb invader's victory over a Host of Embers.\n\nClaiming tongues as trophies was originally the practice of an infamous troupe of invaders, who offered them to their speechless goddess.",
+        "image": "sprites/pale_tongue.png"
+    },
+    {
+        "name": "Vertebra Shackle",
+        "description": "A special bone collected by members of the covenant of Mound-makers, discovered in the corpses of their victims.\n\nOnly one such bone is found in the vertebrae, and the Mound-makers believe it to be a shackle of the gods. \nIn their minds, each victim is another connection, an addition to the family. ",
+        "image": "sprites/vertebra_shackle.png"
+    },
+    {
+        "name": "Rubbish",
+        "description": "Rubbish with no value.\n\nWho in their right mind would bother carrying this around? Perhaps you need help.",
+        "image": "sprites/rubbish.png"
+    },
+    {
+        "name": "Dried Finger",
+        "description": "Online play item.\nDried finger with multiple knuckles.\n\nUse to strengthen connection to other worlds, allowing the summoning of a third phantom, but also a second dark spirit.\n\nAlso makes the summoning of a dark spirit occur earlier. Use with caution.",
+        "image": "sprites/dried_finger.png"
+    },
+    {
+        "name": "Fire Keeper Soul",
+        "description": "Soul of a Fire Keeper who is said to have returned from the Abyss.\n\nThis Fire Keeper preserves the bonfire, and serves its champion. \nShe is said to have soothed and accepted the dark sigil, which has tainted her soul.\n\nAnd yet, her soul will one day embed itself in the bosom of another Fire Keeper.",
+        "image": "sprites/fire_keeper_soul.png"
+    },
+    {
+        "name": "Titanite Shard",
+        "description": "Titanite shard for weapon reinforcement. \nReinforces weapons to +3.\n\nTitanite shards are fragments of the Legendary Slabs. \nTitanite is etched into weapons to reinforce.",
+        "image": "sprites/titanite_shard.png"
+    },
+    {
+        "name": "Titanite Slab",
+        "description": "Titanite slab for weapon reinforcement, said to once belong to the gods. \nReinforces weapons to their highest level.\n\nTitanite slabs are smithing materials of the gods, and weapons reinforced with slabs will be admired no less than their precious legendary weapons.",
+        "image": "sprites/titanite_slab.png"
+    },
+    {
+        "name": "Soul of Darkeater Midir",
+        "description": "Soul of Darkeater Midir. \nOne of the twisted souls, steeped in strength.\n\nUse to acquire many souls, or transpose to extract its true strength.\n\nMidir, descendant of Archdragons, was raised by the gods, and owing to his immortality, was given a duty to eternally battle the dark, a duty that he would never forget, even after the gods perished.",
+        "image": "sprites/soul_of_darkeater_midir.png"
+    },
+    {
+        "name": "Soul of Slave Knight Gael",
+        "description": "Soul of Slave Knight Gael. \nOne of the twisted souls, steeped in strength.\n\nUse to acquire many souls, or transpose to extract its true strength.\n\nThe red-hooded, wandering slave knight Gael sought the blood of the dark soul as pigment for the Painted World.\nBut Gael knew he was no Champion, that the dark soul would likely ruin him, and that he had little hope of a safe return.",
+        "image": "sprites/soul_of_slave_knight_gael.png"
     }
 ]

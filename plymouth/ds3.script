@@ -111,7 +111,7 @@ fun on_refresh() {
 Plymouth.SetRefreshFunction(on_refresh);
 
 # === ITEM IMAGE ===
-item_image = Image("sprites/white_sign_soapstone.png");
+item_image = Image("sprites/purple_moss_clump.png");
 
 item_scaled_width = Math.Int(item_image.GetWidth() * 0.6);
 item_scaled_height = Math.Int(item_image.GetHeight() * 0.6);
@@ -143,16 +143,16 @@ font_title = "FOT-Matisse Pro 22";
 font_description = "FOT-Matisse Pro 16";                              
 
 # === Create Title Text ===
-title_text = "White Sign Soapstone\n";
+title_text = "Purple Moss Clump\n";
 
 # === Create Description Text ===
-description_text = ["Online play item.", "", "Create a co-op summon sign.", "", "Be summoned to another world as a phantom through your sign, and defeat the area boss to gain the strength of flame.", "", "The nature of Lothric is murky, unclear.", "", "The White Sign Soapstone allows Unkindled to assist one another."];
+description_text = ["Medicinal purple moss clump.", "Reduces poison build-up. Cures poison.", "", "Poison builds up in the body, and when it breaks out, it causes gradual damage over a period of time.", "", "Poison can be exasperating, so be sure to carry sufficient moss clumps when traveling to a blighted area."];
 
 # === Create text elements ===
 item_title = create_text_color(title_text, 672, 309, 165/255.0, 144/255.0, 103/255.0, font_title);
 
 # === Constants ===
-max_width = 620;
+max_width = 570;
 start_x = 672;
 start_y = 373;
 line_spacing = 31;
