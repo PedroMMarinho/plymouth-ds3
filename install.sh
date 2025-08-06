@@ -1,23 +1,25 @@
 #!/usr/bin/env bash
-## TODO NEED TO CHANGE THIS INSTALLATION SCRIPT 
-# Where to install your theme
 PLYMOUTH_THEME_BASEDIR=${PLYMOUTH_THEME_BASEDIR:=/usr/share/plymouth/themes/ds3}
 FONTCONFIG_PATH=${FONTCONFIG_PATH:=/etc/fonts/conf.d/}
 
-# Copy font config and font (if you use custom fonts)
-install -d -m 0755 /usr/share/fonts/OTF/
-install -m 0644 ./font/FOT-Matisse-Pro.otf /usr/share/fonts/OTF/
+mkdir -p /usr/share/fonts/OTF/
+cp -v ./font/FOT-Matisse-Pro.otf /usr/share/fonts/OTF/
+
+mkdir -p "${FONTCONFIG_PATH}"
 cp -v ./font/config/* "${FONTCONFIG_PATH}"
 
-# Install Plymouth theme files
-install -d -m 0755 "${PLYMOUTH_THEME_BASEDIR}"
-install -m 0644 ./plymouth/ds3.plymouth "${PLYMOUTH_THEME_BASEDIR}"
-install -m 0644 ./plymouth/ds3.script "${PLYMOUTH_THEME_BASEDIR}"
-install -m 0644 ./plymouth/main_box.png "${PLYMOUTH_THEME_BASEDIR}"
-install -m 0644 ./plymouth/darksouls3_logo.png "${PLYMOUTH_THEME_BASEDIR}"
+mkdir -p "${PLYMOUTH_THEME_BASEDIR}"
+
+cp -vr ./plymouth/* "${PLYMOUTH_THEME_BASEDIR}/"
+
+install -v -d -m 0755 /etc/mkinitcpio.conf.d
+install -v -m 0644 ./mkinitcpio/* /etc/mkinitcpio.conf.d/99-ds3-plymouth.conf
 
 
 echo "Plymouth theme installed to ${PLYMOUTH_THEME_BASEDIR}"
-echo "Don't forget to update your initramfs or equivalent:"
-echo "sudo update-initramfs -u  # Debian/Ubuntu"
-echo "sudo mkinitcpio -P        # Arch"
+echo "Don't forget to update your current theme selection:"
+echo "plymouth-set-default-theme -R ds3       # Arch"
+echo "update-alternatives --config default.plymouth # Debian/Ubuntu"
+echo "You may need to regenerate your initramfs:"
+echo "mkinitcpio -P                     # Arch"
+echo "update-initramfs -u        # Debian/Ubuntu"
