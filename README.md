@@ -12,7 +12,7 @@ For the real booting experience of darksouls you should use this!!! Or don't it'
 
 ![Plymouth Preview TODO]()
 
-# Instalation
+# Installation
 
 - Clone or download the theme repository:
 
