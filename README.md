@@ -69,7 +69,38 @@ To have this running `automatically` you'll to do the following:
 
 - If for some reason it does not update after boot you can run` systemctl status grubsouls-update.service` and check for errors.
 
-## Documentation
+## Delaying Plymouth Theme
+
+- If the `splash` is **too fast**, you can delay it using a `service`:
+```
+[Unit]
+Description=Waits for Plymouth animation to finish
+Before=plymouth-quit.service display-manager.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sleep 5
+
+[Install]
+WantedBy=plymouth-start.service
+```
+In this case the plymouth takes up `5 seconds`.
+
+# Common Issues
+
+- If using the `service for theme update`, when rebooting you might need to **wait** a short period of time because of the initramfs being regenerated. This only happens if you **boot** and **reboot** your pc almost instantly.
+- If can't see the `splash` you should check the `/etc/default/grub` file. It should have these parameters: 
+    - `GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=3 udev.log-priority=3 splash ...` (**Order matters!!**)
+    - And then run:
+        ```
+        sudo grub-mkconfig -o /boot/grub/grub.cfg
+        ```
+
+# Future DEV
+
+Support for different window sizes. For now `1920x1080` is the target resolution. Upper Resolutions should have no problem but lower than that it won't look good.
+
+# Documentation
 
 https://wiki.gentoo.org/wiki/Plymouth/Theme_creation
 
