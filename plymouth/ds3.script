@@ -152,7 +152,7 @@ description_text = ["Soul of Slave Knight Gael.", "One of the twisted souls, ste
 item_title = create_text_color(title_text, 672, 309, 165/255.0, 144/255.0, 103/255.0, font_title);
 
 # === Constants ===
-max_width = 570;
+max_width = 750;
 start_x = 672;
 start_y = 373;
 line_spacing = 31;
