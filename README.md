@@ -9,8 +9,7 @@ The actual DS3 loading screen styled Plymouth theme, revealing to be the continu
 
 For the real booting experience of darksouls you should use this!!! Or don't it's really up to you XD.
 
-
-![Plymouth Preview TODO]()
+![Gale Soul](preview/gale_soul.png)
 
 # Installation
 
