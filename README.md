@@ -3,7 +3,7 @@
 
 The actual DS3 loading screen styled Plymouth theme, revealing to be the continuation of [GrubSouls](https://github.com/PedroMMarinho/grubsouls-theme).
 
-For the real booting experience of darsouls you should use this!!! Or don't it's really up to you XD.
+For the real booting experience of darksouls you should use this!!! Or don't it's really up to you XD.
 
 
 ![Plymouth Preview TODO]()
@@ -24,6 +24,7 @@ Do the following:
 ```bash
 sudo ./install.sh
 # Update and set the theme to the installed one
+# A message should appear after running the script
 ```
 
 And thats it you are good to go!
