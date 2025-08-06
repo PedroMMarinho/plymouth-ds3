@@ -1,5 +1,10 @@
 output_sprites/*
 sprites/bruno_fortes.png
 spritesheets/*
-psd/*
+psd
 loading_icon.png
+info.csv
+loading_icon.png
+process_items.py
+script.py
+sprites/
