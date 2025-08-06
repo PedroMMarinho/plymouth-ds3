@@ -8,8 +8,13 @@ The Full Darksouls Experience:
 The actual DS3 loading screen styled Plymouth theme, revealing to be the continuation of [GrubSouls](https://github.com/PedroMMarinho/grubsouls-theme).
 
 For the real booting experience of darksouls you should use this!!! Or don't it's really up to you XD.
+**Screenshot preview:**
 
 ![Gale Soul](preview/gale_soul.png)
+
+![Midir Soul](preview/midir_soul.png)
+
+![Bone](preview/bone.png)
 
 # Installation
 
