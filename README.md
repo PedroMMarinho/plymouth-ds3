@@ -1,5 +1,9 @@
-
 # DS3 plymouth theme
+
+The Full Darksouls Experience:
+
+| *> [Dark Souls Grub](https://github.com/PedroMMarinho/grubsouls-theme) <* | *> DS3 Plymouth <*
+| --- | ---  |
 
 The actual DS3 loading screen styled Plymouth theme, revealing to be the continuation of [GrubSouls](https://github.com/PedroMMarinho/grubsouls-theme).
 
