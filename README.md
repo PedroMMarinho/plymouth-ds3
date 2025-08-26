@@ -22,7 +22,7 @@ For the real booting experience of darksouls you should use this!!! Or don't it'
 - Clone or download the theme repository:
 
 ```bash
-git clone git@github.com:PedroMMarinho/plymouth-ds3.git
+git clone https://github.com/PedroMMarinho/plymouth-ds3.git
 ```
 
 ## Using the script
